@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL =
-  import.meta.env.MODE === "development" ? "http://localhost:3000/api" : "";
+  import.meta.env.MODE === "development" ? "http://localhost:3000/api" : "https://q3question.onrender.com";
 
 export interface StatsDTO {
   nome: string;
