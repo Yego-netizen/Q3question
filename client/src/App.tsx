@@ -17,7 +17,7 @@ import LandingPage from "./pages/LandingPage.tsx";
 import QuestionText from "./components/QuestionText.tsx";
 import RankingPage from "./pages/Ranking.tsx";
 import AboutPage from "./pages/About.tsx";
-import UserExperienceForm from "./pages/FormFeedback.tsx";
+
 
 type Question = {
   id: number;
@@ -691,7 +691,7 @@ function App() {
   const [timeLeft, setTimeLeft] = useState(5 * 60);
   const [ranking, setRanking] = useState(false);
   const [about,setAbout] = useState(false)
-  const [feedbackForm,setFeedbackForm] = useState(false)
+  
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
   const [gameFinished, setGameFinished] = useState(false);
@@ -808,7 +808,7 @@ function App() {
       setScore((prev) => prev + questionValue);
     }
   };
-  if(feedbackForm) return <UserExperienceForm/>
+ 
   if(about) return <AboutPage onBack={() => setAbout(false)}/>
   if (ranking) return <RankingPage onBack={() => setRanking(false)} />;
   if (!startGame)
@@ -840,7 +840,7 @@ function App() {
               Você fez {score.toFixed(3)} de {questions.length.toFixed(3)}{" "}
               pontos
             </Typography>
-            <Button variant="contained" onClick={() => setFeedbackForm(true)}>Ver Ranking</Button>
+            <Button variant="contained" onClick={() => setRanking(true)}>Ver Ranking</Button>
           </CardContent>
         </Card>
       </CenteredContainer>
