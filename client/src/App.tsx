@@ -17,7 +17,7 @@ import LandingPage from "./pages/LandingPage.tsx";
 import QuestionText from "./components/QuestionText.tsx";
 import RankingPage from "./pages/Ranking.tsx";
 import AboutPage from "./pages/About.tsx";
-
+import UserExperienceForm from "./pages/FormFeedback.tsx";
 
 type Question = {
   id: number;
@@ -673,7 +673,7 @@ print(contador)
 \`
 Qual será o resultado?`,
     options: ["2.", "3.", "4.", "5."],
-    answer: 2,
+    answer: 1,
     hints: [
       "O elemento precisa satisfazer duas condições ao mesmo tempo.",
       "Ele deve ser maior que 5 e também ser ímpar.",
@@ -690,8 +690,8 @@ function App() {
   const [startGame, setStartGame] = useState(false);
   const [timeLeft, setTimeLeft] = useState(5 * 60);
   const [ranking, setRanking] = useState(false);
-  const [about,setAbout] = useState(false)
-  
+  const [about, setAbout] = useState(false);
+  const [feedbackForm, setFeedbackForm] = useState(false);
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
   const [gameFinished, setGameFinished] = useState(false);
@@ -808,8 +808,8 @@ function App() {
       setScore((prev) => prev + questionValue);
     }
   };
- 
-  if(about) return <AboutPage onBack={() => setAbout(false)}/>
+  if (feedbackForm) return <UserExperienceForm nome={nome} />;
+  if (about) return <AboutPage onBack={() => setAbout(false)} />;
   if (ranking) return <RankingPage onBack={() => setRanking(false)} />;
   if (!startGame)
     return (
@@ -836,11 +836,36 @@ function App() {
               Parabéns, {nome}!
             </Typography>
 
-            <Typography sx={{mb:2}} variant="h6">
+            <Typography sx={{ mb: 2 }} variant="h6">
               Você fez {score.toFixed(3)} de {questions.length.toFixed(3)}{" "}
               pontos
             </Typography>
-            <Button variant="contained" onClick={() => setRanking(true)}>Ver Ranking</Button>
+            <Stack
+              direction={{
+                xs: "column",
+                sm: "row",
+              }}
+              spacing={2}
+              sx={{
+                width: "100%",
+              }}
+            >
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={() => setFeedbackForm(true)}
+              >
+                Enviar feedback
+              </Button>
+
+              <Button
+                variant="contained"
+                fullWidth
+                onClick={() => setRanking(true)}
+              >
+                Ver Ranking
+              </Button>
+            </Stack>
           </CardContent>
         </Card>
       </CenteredContainer>

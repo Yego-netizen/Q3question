@@ -1,5 +1,6 @@
 import express from "express";
 import statsRouter from "./src/routes/stats.routes.js";
+import feedbackRouter from "./src/routes/feedback.routes.js"
 import dotenv from "dotenv";
 import { connectDatabase } from "./src/database/database.js";
 import path from "path";
@@ -18,7 +19,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 
 app.use("/api/stats", statsRouter);
-
+app.use("/api/feedback",feedbackRouter)
 // Frontend React
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
