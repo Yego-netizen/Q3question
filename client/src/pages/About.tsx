@@ -15,7 +15,7 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import ScienceIcon from "@mui/icons-material/Science";
 import InsightsIcon from "@mui/icons-material/Insights";
 
-export default function AboutPage({onBack}: {onBack: () => void }) {
+export default function AboutPage({ onBack }: { onBack: () => void }) {
   return (
     <Box
       sx={{
@@ -81,7 +81,7 @@ export default function AboutPage({onBack}: {onBack: () => void }) {
           {/* Artigo */}
           <ResearchSection
             icon={<ArticleIcon />}
-            title="Sobre a pesquisa base do quiz"
+            title="Título"
           >
             <Typography
               color="text.primary"
@@ -91,13 +91,8 @@ export default function AboutPage({onBack}: {onBack: () => void }) {
                 lineHeight: 1.5,
               }}
             >
-              DE JULI, M. C.; OLIVEIRA, W.; NASCIMENTO, I. M. do; ISOTANI, S.
               Eles Percebem o que Queremos? Um Estudo Sobre a Percepção dos
-              Estudantes em um Sistema Educacional Gamificado. Revista
-              Brasileira de Informática na Educação, [S. l.], v. 31, p. 529–552,
-              2023. DOI: 10.5753/rbie.2023.3118. Disponível em:
-              https://journals-sol.sbc.org.br/index.php/rbie/article/view/3118.
-              Acesso em: 9 ago. 2026.
+              Estudantes em um Sistema Educacional Gamificado.
             </Typography>
           </ResearchSection>
 
@@ -109,7 +104,9 @@ export default function AboutPage({onBack}: {onBack: () => void }) {
             </ResearchText>
 
             <ResearchText>
-              Os autores são vinculados, respectivamente, ao Centro Universitário Internacional, Tampere University, UFPB e Harvard Graduate School of Education 
+              Os autores são vinculados, respectivamente, ao Centro
+              Universitário Internacional, Tampere University, UFPB e Harvard
+              Graduate School of Education
             </ResearchText>
           </ResearchSection>
 
@@ -333,10 +330,17 @@ export default function AboutPage({onBack}: {onBack: () => void }) {
                 lineHeight: 1.5,
               }}
             >
-              Pesquisa utilizada como referência para a concepção da experiência
-              gamificada deste projeto.
+              Referência: DE JULI, M. C.; OLIVEIRA, W.; NASCIMENTO, I. M. do;
+              ISOTANI, S. Eles Percebem o que Queremos? Um Estudo Sobre a
+              Percepção dos Estudantes em um Sistema Educacional Gamificado.
+              Revista Brasileira de Informática na Educação, [S. l.], v. 31, p.
+              529–552, 2023. DOI: 10.5753/rbie.2023.3118. Disponível em:
+              https://journals-sol.sbc.org.br/index.php/rbie/article/view/3118.
+              Acesso em: 9 ago. 2026.
             </Typography>
-            <Button variant="contained" onClick={() => onBack()}>← Voltar</Button>
+            <Button variant="contained" onClick={() => onBack()}>
+              ← Voltar
+            </Button>
           </Box>
         </Stack>
       </Container>
